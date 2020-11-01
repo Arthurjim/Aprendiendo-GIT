@@ -7,7 +7,7 @@ body{
 .container{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color:rgb(179, 179, 179);
+  color:rgb(150, 148, 148);
   border:0px solid black;
   width: 70%;
   padding: 2px 5px 0px 5px;
@@ -15,7 +15,7 @@ body{
   box-shadow: 7px 7px 10px 10px rgb(121, 121, 121);
   }
 .header{
-  background-color: rgb(4, 4, 250);
+  background-color: rgb(25, 25, 247);
   
   height: 55px;
   color:white;
