@@ -1,0 +1,32 @@
+body{
+ margin: 0;
+ padding: 0;
+ font-family: monospace;
+
+}
+.container{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:rgb(255, 123, 0);
+  border:0px solid black;
+  width: 70%;
+  padding: 8px;
+  margin:0 auto;
+  box-shadow: 7px 7px 10px 10px rgb(121, 121, 121);
+  }
+.header{
+  background-color: rgb(4, 4, 250);
+  
+  height: 55px;
+  color:white;
+  text-align: left;
+  margin-top: 0;
+  font-size: 25px;
+  line-height: 55px;
+  box-shadow: 7px 7px 10px 5px black;
+}
+.header span{
+  margin-left: 20px;
+  font-size: 18px;
+  font-family: cursive;
+}
