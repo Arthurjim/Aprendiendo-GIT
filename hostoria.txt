@@ -1,4 +1,6 @@
 Hola que tal yo soy arturo y tengo 23 años  
 Todavía no tengo trabajo.
 
+Master
+
 Soy desarrollador web, el lenuguaje que más utilizo es JavaScript, en unos meses me volvere un fullstack.
