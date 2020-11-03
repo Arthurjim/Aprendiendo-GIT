@@ -3,4 +3,5 @@ Todavía no tengo trabajo.
 
 Master
 
+Master 2
 Soy desarrollador web, el lenuguaje que más utilizo es JavaScript, en unos meses me volvere un fullstack.
