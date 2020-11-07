@@ -7,3 +7,179 @@ Master
 
 Master 2
 Soy desarrollador web, el lenuguaje que más utilizo es JavaScript, en unos meses me volvere un fullstack.
+
+
+#Comandos GIT y GitHub
+git status- para ver si hay cambios
+git add . añadir todod a el repo
+git commit -m guardar los cambios
+git commit -am se utiliza para hacer commit y add  junto
+git show  vemos el ultimo commit
+git log vemos todos los commit hechos
+git reset "id" --hard  nos regresa al commit del id seleccionado, sin poder regresar a los cambios anteriores
+git rm 
+git log --stat  vemos más a detalle todos los cambios que se hicieron
+git checkout id "ejemplo.txt"  nos devluelve el archivo a la version del id que seleccionamos.
+para regresar a la version tenemos que poner
+git checkout master "ejemplo.txt" y nos regresa al actual
+git push para mandar los archivos de un comiit al repositorio remoto
+git fetch nos trae la actualizacion del repositorio remoto y para traer todos los archivos que agregó algun otro desarrollador se escribre 
+git merge "el nombre de la rama que vas a tomar" y esto es como un commit trayendo los cambios de la rama mandada a llamar a la rama donde estamos
+git branch checamos el nombre de las ramas
+git pull fuciona los dos comandos fetch y merge
+
+
+
+git branch "nombre de la brecha" nos cambiamos a la rama seleccionada(recuerda hacer commit antes de cambiar)
+git branch -r vemos las ramas remotas
+git branch -a vemos todas las ramas
+git checkout "nombre de la brecha " nos cambiamos de brecha
+recuerda que puedes borrar commits con git reset y ramas con git branch -d).
+
+
+git remote add origin "url"    con esto estamos diciendole a git que vamos a trabajar con una url
+git remote -v nos muestra la url en la que estamos trabajando
+
+git push origin master    aqui le estamos diciendo a git que le envie al orignin lo que se encuentra en la rama master para esot ->
+Tenemos que traernos el master del repositorio remoto con pull , de lo contrario nos dara error al hacer push
+git pull origin master   aqui estamos diciendo que nos traiga todo lo del origin al master, pero podemos traer cualaquier rama
+ git pull origingit master   --allow-unrelated-histories  con este comando fucionamos las dos ramas el origin/master y el master local
+git push origin master   y nuevamente haces este comando y ya enviaremos los archivos al repositorio remoto
+ git push origin :"nombre de la rama" eliminando la rama seleccionada.
+
+git config --global user.email "emai" para cambiar el email
+git diff checamos a detalle cuales son los cambios realizados antes de hacer un git add .
+
+Llaves privadas y llaves publicas.
+Con tu llave publica puedes mandar un mensaje secreto a otro desarrollado y Son imposibles de hackear, solo la llave privada de la persona a la que le mandas el mensaje oculto lo puede ver
+siempre y cuando le hayas dado la referencia de la llave privada del receptor
+
+Las llaves no son por respositiros o por proyectos, si no por persona.
+El protocolo que se usa es SSH
+ Solo se debe tener una llave privada por cada ordenador
+CREANDO LAS LLAVES
+
+ssh-keygen -t rsa -b 4096 -c "arthurjim013@gmail.com" 
+
+ ssh-keygen ->estamos diciendo ue vamos a generar una key de ssh
+ -t rsa ->especificamos el algorito a utilizar
+-b 4096 -> Especificamos que tan complejo será el algorito a utilizar 
+-C "correo" ->Estamos diciendo a que correo electronico va a estra conectada la llave)
+
+Despues de dar enter nos preguntara que si queremos agregar otra contraseña y si quieres la agregas, en caso de que no quieras no pasa nada
+
+Tenemos que checar en la carpeta donde guardamos las llaves 
+la llave publica se guardara con la extension .pub
+
+
+En windows escribimos este comando para ver si esta corriendo el identificador de llaves en nuestra computadora eval $(ssh-agent -s)
+En caso de que si este corriendo de buena manera nos aparecera Agent pid numero
+
+
+Ahora tenemos que decirle a git cual es nuesta llave privada, para esto tenemos que escribir el comando 
+ssh-add ~/.ssh/id_rsa
+
+
+--------------------------------------------------------------------------
+git log --all --graph --decorate --oneline
+ Muestra de una manera más decorada todo los commits de nuestro proyecto
+
+
+alias arbolit="git log --all --graph --decorate --oneline" estamos poniendo un alias a ese comando 
+
+git log --oneline Nos muestra el historial de los commits
+
+CREANDO TAGS
+Tenemos que seleccionar el id del commit del cual queramos realizar el tag e ingresamos este comango
+git tag -a v0.1 -m "Resultado de las primeras clases" fa1b904
+
+para mandar los tags a los repositiorios online damos el siguiente comando
+git push origin --tags
+git tag -d "nombre del tag" elimina el tag pero solo en el ambiente local 
+git push origin :refs/tags/dormido este comando funciona para eliminar el tag en el respo de github
+
+git show-branch Esto nos muesta las ramas y los commits que se han hecho con estas.
+git show-branch --all
+
+gitk este comando abre un software de git donde se muestra todo comos los commits de forma mas visual
+
+
+
+
+--------------------------------------------------------------
+Git con distintos developers
+
+git clone url  clona el respotitorio de la url
+
+pull request son pausas que suceden antes de fucionar del lado del repositorio remoto
+
+
+para clonar la version actual de un repositorio se debe seleccionar en github el icono que dice fork, esto nos permitirá clonar  el proyecto a tus repositorios de github
+
+podemos crear un upsream para verificar todos los cambios del repositorio al que tomamos los archivos
+
+
+
+------------------------------------------------------
+
+Git reabase "a la rama master" Consiste en unir una rama(experimento) a la rama master sin que se note que fue una rama externa, esto es una mala practica.
+primero se tiene que hacer el rebase de la rama experimento a la rama master y despues de la rama master a la rama experimento
+
+----------------------------------------------------
+git stash   Este comando nos sirve para guardar en memoria los cambios hechos anteriormente, sin necesidad de hacer un commit, esto por si queremos movernos a otra rama y aun no estamos seguros de hacer un commit
+git stash list para ver el stash guardado
+git stash branch "nombre de la rama" Esto nos sirve para crear una nueva rama con los cambios que guardamos en el stash.
+git stash drop borramos el stash
+
+
+--------------------------------------------------------
+git clean --dry-run  este comando nos ayuda a borrar los archivos no deseados de nuestro proyecto
+git clean -f los borra
+
+
+---------------------------------------------------------
+git   cherry-pick "id"   Esto nos trae los cambios que se hicieron en ese commit, aunque sea de cualquier rama
+
+------------------------------------------------
+A veces hacemos un commit, pero resulta que no queríamos mandarlo porque faltaba algo más. Utilizamos git commit --amend, amend en inglés es remendar y lo que hará es que los cambios que hicimos nos los agregará al commit anterior.
+
+
+---------------------------------------------------
+
+git reflog Este comando nos ayudará a regresar al commit que nosotros queramos, lo que hace es mostrar todas los commits que se han hecho y podemos elegir a cual queremos ir(en donde no hayamos borrado algo o donde todo funconaba anteriormente).
+Y estando allí seleccionaremos el head al que queramos regresar.
+git reset --SOFT este comando te mantiene lo que sea que tengas en staying, lo que todavía este pendiente de un commit 
+git reset --HARD este comando te resetea todo, solo te regresa a el ultimo comiit selecionado y lo que hayas hecho en el, no te regresa el staying
+
+es una mala practica
+
+-----------------------------------------------------
+Buscar en archivos y commits en GIT con Grep y log 
+git grep "palabra a buscar"  esto nos va a decir en que archivos se encuentra la palabra
+git grep -n "palabra" Esto nos dice especificamente en que linea se encuentra la palabra
+git grep -c "la palabra" este comando nos cuenta la palabra buscada.
+
+git log -S "palabra" Este comando busca la palabra en los commits
+
+--------------------------------------------------------
+Comandos y recursos colaborativos en Git y GitHub
+
+
+git shortlog muestra los commits hechos por cada integrante y el nombre del commit
+git shortlog -sn muesta solo a la persona y cuantos commits hizo
+
+git config --global alias.stats "short sn --al --no-merges" con este comando le esamos diciendo a git que utitlice el comando git stats como un alias del comando "short ...."
+
+git blame "archivo" con este archivo vemos que persona hizo que cosa en el archivo
+git blame -c "archivo" identa un poco el archivo 
+
+
+git blame css/estilo.css -L35,60 -c con este comando estamos diciendo que muestre que persona creo el codigo de la linea 35 a la 60
+
+
+
+
+aprender travis ci y jankins
+
+gitlab
+devOps
